@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaFix - Soporte Técnico IT en Buenaventura</title>
+  <meta name="description" content="NovaFix ofrece soporte técnico en sitio, cableado estructurado, manos remotas e instalación de equipos IT para empresas en Buenaventura y Colombia.">
+
+  <!-- Open Graph: controla cómo se ve el link al compartirlo en WhatsApp, Facebook, etc. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="NovaFix - Soporte Técnico IT en Buenaventura">
+  <meta property="og:description" content="Soporte en sitio, cableado estructurado, manos remotas e instalación de equipos IT para empresas en Buenaventura y Colombia.">
+  <meta property="og:image" content="https://www.novafix.com/img/og-cover.png">
+  <meta property="og:url" content="https://www.novafix.com/">
+  <meta property="og:locale" content="es_CO">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Preconnect para acelerar la carga del CDN -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+        crossorigin="anonymous">
+
+  <link rel="icon" type="image/png" href="img/favico.png">
+
+  <!-- Datos estructurados para Google (SEO local: negocio, dirección, teléfono, servicios) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "NovaFix",
+    "image": "https://www.novafix.com/img/logo-novafix.png",
+    "telephone": "+573178030414",
+    "email": "contacto.novafix@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Cr 19 Cl 4 - 30",
+      "addressLocality": "Buenaventura",
+      "addressCountry": "CO"
+    },
+    "url": "https://www.novafix.com/",
+    "priceRange": "$$",
+    "description": "Soporte técnico en sitio, cableado estructurado, manos remotas e instalación de equipos IT para empresas en Buenaventura y Colombia."
+  }
+  </script>
+
+  <!-- Google Analytics 4: reemplaza G-XXXXXXXXXX por tu ID real de GA4 para activar -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+
+
+  <style>
+    :root {
+      --brand-dark: #003366;
+      --brand-light: #E6F0FF;
+      --whatsapp: #25D366;
+      --whatsapp-hover: #128C7E;
+    }
+
+    body { background-color: #F5F5F5; }
+
+    .navbar { background-color: var(--brand-dark); }
+    .navbar-brand img { height: 40px; width: auto; }
+
+    .hero { background-color: var(--brand-light); padding: 80px 0; text-align: center; }
+    .hero .btn { padding: 12px 32px; font-weight: 600; }
+    .btn-whatsapp { background-color: var(--whatsapp); color: #fff; border: none; }
+    .btn-whatsapp:hover { background-color: var(--whatsapp-hover); color: #fff; }
+
+    .testimonios { padding: 60px 0; }
+    .testimonio-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 24px;
+      height: 100%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .testimonio-card .estrellas { color: #F5A623; letter-spacing: 2px; }
+    .testimonio-card .autor { font-weight: 600; color: var(--brand-dark); margin-top: 12px; }
+
+    /* Sección de servicios: reemplaza la clase inexistente "vh-50" por control real de alto/espaciado */
+    .servicios-bg {
+      background-image: url('img/backgrounddiv.png');
+      background-size: cover;
+      background-position: center;
+      padding: 60px 15px;
+    }
+    .servicio-item { margin-bottom: 32px; }
+    .servicio-item h5 { color: var(--brand-dark); }
+
+    footer { background-color: var(--brand-dark); color: white; padding: 30px 0; }
+    footer a { text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* Botón flotante de WhatsApp (única definición, sin duplicados) */
+    .btn-whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--whatsapp);
+      color: #fff;
+      border-radius: 50px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    .btn-whatsapp-float:hover {
+      background-color: var(--whatsapp-hover);
+      transform: scale(1.1);
+    }
+    .btn-whatsapp-float svg {
+      width: 35px;
+      height: 35px;
+      fill: #fff;
+    }
+
+    /* Accesibilidad: foco visible para navegación por teclado */
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 3px solid var(--brand-dark);
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .btn-whatsapp-float { transition: none; }
+    }
+
+    /* ---- Animaciones de entrada ---- */
+
+    /* Hero: aparece con fade + slide hacia arriba apenas carga la página */
+    .hero-anim {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .hero-anim.in { opacity: 1; transform: translateY(0); }
+    .hero-anim.delay-1 { transition-delay: 0.15s; }
+    .hero-anim.delay-2 { transition-delay: 0.3s; }
+
+    /* Elementos que aparecen al hacer scroll (tarjetas, títulos de sección) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Retraso escalonado para grupos de tarjetas (efecto cascada) */
+    .reveal-group .reveal:nth-child(1) { transition-delay: 0s; }
+    .reveal-group .reveal:nth-child(2) { transition-delay: 0.12s; }
+    .reveal-group .reveal:nth-child(3) { transition-delay: 0.24s; }
+    .reveal-group .reveal:nth-child(4) { transition-delay: 0.36s; }
+
+    /* Pequeño "levante" al pasar el mouse sobre las tarjetas, refuerza la interactividad */
+    .testimonio-card, .servicio-item {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .testimonio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    /* Si el usuario prefiere menos movimiento, mostramos todo de inmediato sin animar */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-anim, .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .testimonio-card:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#inicio">
+        <img src="img/logo-novafix.png" alt="NovaFix" width="120" height="40">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú de navegación">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="inicio" class="hero">
+    <div class="container">
+      <h1 class="display-5 fw-bold hero-anim">Soluciones IT confiables, escalables y a tu medida</h1>
+      <p class="lead hero-anim delay-1">En NovaFix, somos un equipo dinámico y en constante evolución. Ofrecemos servicios integrados de tecnología informática y comunicaciones, diseñados para impulsar la transformación digital de tu organización. Nuestro propósito es convertirnos en tu aliado estratégico en IT, brindando soluciones confiables, escalables y adaptadas a tus necesidades presentes y futuras.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3 mt-4 hero-anim delay-2">
+        <a href="https://wa.me/573178030414" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+          💬 Escríbenos por WhatsApp
+        </a>
+        <a href="#contacto" class="btn btn-outline-primary">
+          Solicitar cotización
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios">
+    <div class="servicios-bg text-center">
+      <h4 class="display-6 fw-bold mb-4 reveal">Nuestros Servicios</h4>
+      <div class="row reveal-group">
+        <div class="col-md-6 servicio-item reveal">
+          <h5>🔹 Soporte en Sitio</h5>
+          <p>Atención técnica inmediata en instalaciones del cliente<br>
+            Diagnóstico y resolución de incidencias en hardware y software<br>
+            Mantenimiento preventivo y correctivo de equipos</p>
+        </div>
+        <div class="col-md-6 servicio-item reveal">
+          <h5>🔹 Cableado Estructurado</h5>
+          <p>Tendido y organización de cableado estructurado<br>
+            Configuración de puntos de red y racks de comunicaciones<br>
+            Instalación de canalizaciones y bandejas portacables<br>
+            Migración y actualización de infraestructura de red</p>
+        </div>
+      </div>
+      <div class="row reveal-group">
+        <div class="col-md-6 servicio-item reveal">
+          <h5>🔹 Servicios de Manos Remotas</h5>
+          <p>Apoyo técnico remoto para configuración y monitoreo<br>
+            Ejecución de tareas bajo supervisión de cliente o proveedor<br>
+            Reinicios, pruebas de conectividad y soporte básico en sitio<br>
+            Gestión de incidencias en coordinación con equipos externos</p>
+        </div>
+        <div class="col-md-6 servicio-item reveal">
+          <h5>🔹 Instalaciones, Configuraciones e Inventarios de Equipos</h5>
+          <p>Instalación de servidores, switches, routers y firewalls<br>
+            Configuración de PCs, laptops y dispositivos móviles<br>
+            Inventario físico y digital de activos tecnológicos<br>
+            Etiquetado y documentación de equipos para auditorías<br>
+            Actualización de firmware y software corporativo</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <!-- NOTA: los textos y nombres de abajo son marcadores de ejemplo.
+       Reemplázalos por testimonios reales de tus clientes en Buenaventura
+       en cuanto los tengas — esto es lo que más ayuda a generar confianza. -->
+  <section class="testimonios bg-light">
+    <div class="container">
+      <h4 class="display-6 fw-bold text-center mb-4 reveal">Lo que dicen nuestros clientes</h4>
+      <div class="row g-4 reveal-group">
+        <div class="col-md-4 reveal">
+          <div class="testimonio-card">
+            <div class="estrellas">★★★★★</div>
+            <p class="mt-2">"Resolvieron un problema de red que llevaba semanas afectando la operación. Respuesta rápida y clara."</p>
+            <p class="autor">— Nombre del cliente, Empresa</p>
+          </div>
+        </div>
+        <div class="col-md-4 reveal">
+          <div class="testimonio-card">
+            <div class="estrellas">★★★★★</div>
+            <p class="mt-2">"El cableado estructurado quedó impecable y documentado. Se nota la experiencia del equipo."</p>
+            <p class="autor">— Nombre del cliente, Empresa</p>
+          </div>
+        </div>
+        <div class="col-md-4 reveal">
+          <div class="testimonio-card">
+            <div class="estrellas">★★★★★</div>
+            <p class="mt-2">"El soporte remoto nos ahorra tiempo y dinero. Siempre disponibles cuando los necesitamos."</p>
+            <p class="autor">— Nombre del cliente, Empresa</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="py-5">
+    <div class="container">
+      <h2 class="reveal">Contáctanos</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <!-- Formulario conectado a Netlify Forms.
+               No necesita backend propio: Netlify detecta este formulario
+               automáticamente en el momento del deploy gracias al atributo
+               data-netlify="true", siempre que el sitio esté publicado ahí
+               (GitHub -> Netlify). El honeypot "bot-field" es una técnica
+               anti-spam invisible para personas pero visible para bots. -->
+          <form
+            name="contacto-novafix"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            id="form-contacto"
+          >
+            <input type="hidden" name="form-name" value="contacto-novafix">
+            <p class="d-none">
+              <label>No llenar este campo si eres humano: <input name="bot-field"></label>
+            </p>
+
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="mb-3">
+              <label for="contacto_preferido" class="form-label">WhatsApp o correo</label>
+              <input type="text" class="form-control" id="contacto_preferido" name="contacto_preferido"
+                     placeholder="Número de WhatsApp o email" required>
+            </div>
+            <div class="mb-3">
+              <label for="servicio" class="form-label">¿Qué servicio necesitas?</label>
+              <select class="form-select" id="servicio" name="servicio" required>
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option value="Soporte en Sitio">Soporte en Sitio</option>
+                <option value="Cableado Estructurado">Cableado Estructurado</option>
+                <option value="Manos Remotas">Servicios de Manos Remotas</option>
+                <option value="Instalaciones e Inventarios">Instalaciones, Configuraciones e Inventarios</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="mensaje" class="form-label">Cuéntanos brevemente qué necesitas (opcional)</label>
+              <textarea class="form-control" id="mensaje" name="mensaje" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="form-submit-btn">Enviar mensaje</button>
+
+            <div id="form-success" class="alert alert-success mt-3 d-none" role="alert">
+              ¡Gracias! Tu mensaje fue enviado. Te contactaremos pronto.
+            </div>
+            <div id="form-error" class="alert alert-danger mt-3 d-none" role="alert">
+              Hubo un problema al enviar el formulario. Intenta de nuevo o escríbenos directo por WhatsApp.
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <h5>📞 Teléfono: <a href="tel:+573178030414" class="text-dark">+57 317 803 0414</a></h5>
+          <h5>💬 WhatsApp: <a href="https://wa.me/573178030414" target="_blank" rel="noopener noreferrer" class="text-dark">+57 317 803 0414</a></h5>
+          <h5>✉️ Correo: <a href="mailto:contacto.novafix@gmail.com" class="text-dark">contacto.novafix@gmail.com</a></h5>
+          <h5>📍 Dirección: Cr 19 Cl 4 - 30, Buenaventura, Colombia</h5>
+          <h5>🌐 Sitio web: www.novafix.com</h5>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.me/573178030414" class="btn-whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp" title="Chat de WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" focusable="false">
+      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+  </a>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p>© 2026 NovaFix - Todos los derechos reservados</p>
+      <p>
+        <a href="#" class="text-white" data-bs-toggle="modal" data-bs-target="#modalAvisoLegal">Aviso Legal</a>
+        |
+        <a href="#" class="text-white" data-bs-toggle="modal" data-bs-target="#modalPrivacidad">Política de Privacidad</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Modal: Aviso Legal -->
+  <div class="modal fade" id="modalAvisoLegal" tabindex="-1" aria-labelledby="modalAvisoLegalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalAvisoLegalLabel">Aviso Legal</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p>Este sitio web es operado por NovaFix, con domicilio en Cr 19 Cl 4 - 30, Buenaventura, Colombia. El contenido publicado tiene fines informativos sobre los servicios ofrecidos por NovaFix.</p>
+          <p>NovaFix no se hace responsable por el uso indebido de la información aquí publicada ni por daños derivados de la interrupción o indisponibilidad del sitio.</p>
+          <p><em>Texto de ejemplo: te recomendamos hacerlo revisar por un abogado antes de publicarlo, ya que no constituye asesoría legal.</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Política de Privacidad -->
+  <div class="modal fade" id="modalPrivacidad" tabindex="-1" aria-labelledby="modalPrivacidadLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalPrivacidadLabel">Política de Privacidad</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p>En NovaFix recopilamos únicamente los datos que nos proporcionas voluntariamente a través de nuestro formulario de contacto (nombre, medio de contacto y detalle del servicio solicitado), con el único fin de responder tu solicitud.</p>
+          <p>De acuerdo con la Ley 1581 de 2012 (Habeas Data) de Colombia, tienes derecho a conocer, actualizar, rectificar y solicitar la eliminación de tus datos personales en cualquier momento, escribiéndonos a <a href="mailto:contacto.novafix@gmail.com">contacto.novafix@gmail.com</a>.</p>
+          <p>No compartimos tu información con terceros, salvo obligación legal.</p>
+          <p><em>Texto de ejemplo: te recomendamos hacerlo revisar por un abogado antes de publicarlo, ya que no constituye asesoría legal.</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+          crossorigin="anonymous"></script>
+
+  <!-- Animaciones de entrada: hero al cargar + reveal on-scroll para el resto -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // 1) Hero: aparece apenas la página termina de cargar
+      document.querySelectorAll('.hero-anim').forEach(function (el) {
+        // Pequeño delay de un frame para asegurar que el navegador aplique
+        // el estado inicial (opacity:0) antes de animar al estado final.
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { el.classList.add('in'); });
+        });
+      });
+
+      // 2) Resto de secciones: aparecen cuando entran en el viewport al hacer scroll
+      var revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && revealEls.length) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in');
+              observer.unobserve(entry.target); // se anima una sola vez
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        revealEls.forEach(function (el) { observer.observe(el); });
+      } else {
+        // Navegadores sin soporte para IntersectionObserver: mostrar directo
+        revealEls.forEach(function (el) { el.classList.add('in'); });
+      }
+      // 3) Envío del formulario de contacto por AJAX a Netlify Forms
+      //    (evita el recargo de página y muestra un mensaje de confirmación in-line)
+      var form = document.getElementById('form-contacto');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          var successBox = document.getElementById('form-success');
+          var errorBox = document.getElementById('form-error');
+          var submitBtn = document.getElementById('form-submit-btn');
+
+          successBox.classList.add('d-none');
+          errorBox.classList.add('d-none');
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Enviando...';
+
+          var formData = new FormData(form);
+
+          fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString(),
+          })
+            .then(function () {
+              successBox.classList.remove('d-none');
+              form.reset();
+            })
+            .catch(function () {
+              errorBox.classList.remove('d-none');
+            })
+            .finally(function () {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Enviar mensaje';
+            });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
